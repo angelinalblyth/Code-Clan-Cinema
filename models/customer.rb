@@ -55,12 +55,12 @@ class Customer
     @funds -= film.price
   end
 
-def tickets_bought()
-  sql = "SELECT * FROM tickets WHERE customer_id = $1"
-  values = [@id]
-  results = SqlRunner.run(sql, values)
-  return Ticket.map_items(results)
-end
+  def tickets_bought()
+    sql = "SELECT * FROM tickets WHERE customer_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return Ticket.map_items(results)
+  end
 
 
 def self.map_items(data)
