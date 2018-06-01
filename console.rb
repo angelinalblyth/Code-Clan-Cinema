@@ -47,6 +47,8 @@ ticket5 = Ticket.new({'customer_id' => '3', 'film_id' => '5'})
 ticket5.save()
 ticket6 = Ticket.new({'customer_id' => '4', 'film_id' => '3'})
 ticket6.save()
+ticket7 = Ticket.new({'customer_id' => '1', 'film_id' => '3'})
+ticket7.save()
 
 customer1.name = "Angie"
 customer1.update()
