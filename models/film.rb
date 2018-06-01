@@ -8,7 +8,7 @@ class Film
   def initialize(options)
     @id = options['id'][0].to_i if options['id']
     @title = options['title']
-    @price = options['price']
+    @price = options['price'].to_i
   end
 
   def save()
@@ -29,7 +29,7 @@ class Film
     sql = "DELETE FROM films"
     SqlRunner.run(sql)
   end
-  
+
   def update()
     sql = "UPDATE films SET (title, price) = ($1, $2) WHERE id = $3"
     values = [@title, @price, @id]

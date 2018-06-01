@@ -51,7 +51,7 @@ ticket6.save()
 customer1.name = "Angie"
 customer1.update()
 
-customer2.remaining_funds()
+customer2.buy_ticket(film1)
 customer2.update()
 
 binding.pry
