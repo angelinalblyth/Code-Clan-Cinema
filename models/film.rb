@@ -6,9 +6,9 @@ class Film
   attr_accessor :title, :price
 
   def initialize(options)
-      @id = options['id'][0].to_i if options['id']
-      @title = options['title']
-      @price = options['price']
+    @id = options['id'][0].to_i if options['id']
+    @title = options['title']
+    @price = options['price']
   end
 
   def save()
@@ -31,9 +31,15 @@ class Film
   end
 
   def update()
-  sql = "UPDATE films SET (title, price) = ($1, $2) WHERE id = $3"
-  values = [@title, @price, @id]
-  SqlRunner.run(sql, values)
-end
+    sql = "UPDATE films SET (title, price) = ($1, $2) WHERE id = $3"
+    values = [@title, @price, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = "DELETE * from films WHERE id = $1"
+    values [@id]
+    SqlRunner.run(sql, values)
+  end
 
 end

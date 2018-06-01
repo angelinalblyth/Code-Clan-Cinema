@@ -6,9 +6,9 @@ class Customer
   attr_accessor :name, :funds
 
   def initialize(options)
-      @id = options['id'][0].to_i if options['id']
-      @name = options['name']
-      @funds = options['funds'].to_i
+    @id = options['id'][0].to_i if options['id']
+    @name = options['name']
+    @funds = options['funds'].to_i
   end
 
   def save()
@@ -31,9 +31,15 @@ class Customer
   end
 
   def update()
-  sql = "UPDATE customers SET (name, funds) = ($1, $2) WHERE id = $3"
-  values = [@name, @funds, @id]
-  SqlRunner.run(sql, values)
-end
+    sql = "UPDATE customers SET (name, funds) = ($1, $2) WHERE id = $3"
+    values = [@name, @funds, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = "DELETE * from customers WHERE id = $1"
+    values [@id]
+    SqlRunner.run(sql, values)
+  end
 
 end
