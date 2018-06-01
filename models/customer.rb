@@ -49,7 +49,24 @@ class Customer
     return Film.map_items(film_data)
   end
 
-  def self.map_items(data)
+# Remaining funds. Need to SELECT the film price from the film table. Find what customers when to see that film from the tickets table. Get the customers funds in their wallet. Remove the film ticket price from the customers funds. Update the customers funds with the new amount.
+  def remaining_funds()
+    sql = "SELECT films.price FROM films INNER JOIN tickets on films.id = tickets.film_id INNER JOIN customers ON customers.id = tickets.customer_id WHERE customer_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    amount = results.map{|result| result['price'].to_i}.sum
+    @funds -= amount
+    #returns 6 which is correct but unsure how to update the customer records with the new amount.
+end
+
+#SELECT films.price FROM films INNER JOIN tickets on films.id = tickets.film_id INNER JOIN customers ON customers.id = tickets.customer_id WHERE customers.id = 1;
+
+# def tickets_bought()
+#   sql = ""
+# end
+
+
+def self.map_items(data)
   result = data.map{|customer| Customer.new(customer)}
   return result
 end

@@ -44,9 +44,9 @@ class Ticket
 
 
   def self.map_items(data)
-  result = data.map{|ticket| Ticket.new(ticket)}
-  return result
-end
+    result = data.map{|ticket| Ticket.new(ticket)}
+    return result
+  end
 
 
 
