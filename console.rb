@@ -8,6 +8,7 @@ require('pry-byebug')
 Customer.delete_all()
 Film.delete_all()
 Ticket.delete_all()
+Screening.delete_all()
 
 
 customer1 = Customer.new({'name' => 'Angelina', 'funds' => '10'})
@@ -53,7 +54,7 @@ ticket7.save()
 
 screening1 = Screening.new({'screening_time' => '12:00', 'film_id' => film1.id})
 screening1.save()
-screening2 = Screening.new({'screening_time' => '14:00', 'film_id' => film1.id})
+screening2 = Screening.new({'screening_time' => '13:00', 'film_id' => film1.id})
 screening2.save()
 screening3 = Screening.new({'screening_time' => '16:00', 'film_id' => film1.id})
 screening3.save()

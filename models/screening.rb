@@ -21,4 +21,22 @@ def save()
   @id = screening['id'].to_i
 end
 
+def self.all() #Screening.all()
+  sql = "SELECT * FROM screenings"
+  screenings = SqlRunner.run(sql)
+  results = screenings.map{|screening| Screening.new(screening)}
+  return results
+end
+
+def self.delete_all()
+  sql = "DELETE FROM screenings"
+  SqlRunner.run(sql)
+end
+
+def update()
+  sql = "UPDATE screenings SET (screening_time, film_id) = ($1, $2) WHERE id = $3"
+  values = [@screening_time, @film_id, @id]
+  SqlRunner.run(sql, values)
+end
+
 end
