@@ -23,8 +23,7 @@ end
 
 def self.all() #Screening.all()
   sql = "SELECT * FROM screenings"
-  screenings = SqlRunner.run(sql)
-  results = SqlRunner.run(sql, values)
+  results = SqlRunner.run(sql)
   return Screening.map_items(results)
 end
 
@@ -47,7 +46,7 @@ end
 
 
 def self.map_items(data)
-  results = data.map{|screening| Screening.new(screening)}
+  result = data.map{|screening| Screening.new(screening)}
   return result
 end
 
