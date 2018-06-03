@@ -72,5 +72,8 @@ customer1.update()
 customer2.buy_ticket(film1)
 customer2.update()
 
+screening1.screening_time = "14:00"
+screening1.update()
+
 binding.pry
 nil
