@@ -24,8 +24,8 @@ end
 def self.all() #Screening.all()
   sql = "SELECT * FROM screenings"
   screenings = SqlRunner.run(sql)
-  results = screenings.map{|screening| Screening.new(screening)}
-  return results
+  results = SqlRunner.run(sql, values)
+  return Screening.map_items(results)
 end
 
 def self.delete_all()
@@ -37,6 +37,18 @@ def update()
   sql = "UPDATE screenings SET (screening_time, film_id) = ($1, $2) WHERE id = $3"
   values = [@screening_time, @film_id, @id]
   SqlRunner.run(sql, values)
+end
+
+def delete()
+  sql = "DELETE * FROM screenings WHERE id = $1"
+  values = [@id]
+  SqlRunner.run(sql, values)
+end
+
+
+def self.map_items(data)
+  results = data.map{|screening| Screening.new(screening)}
+  return result
 end
 
 end

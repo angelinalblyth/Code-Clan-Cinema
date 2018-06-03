@@ -66,6 +66,7 @@ screening6 = Screening.new({'screening_time' => '16:00', 'film_id' => film2.id})
 screening6.save()
 
 
+
 customer1.name = "Angie"
 customer1.update()
 
@@ -74,6 +75,7 @@ customer2.update()
 
 screening1.screening_time = "14:00"
 screening1.update()
+
 
 binding.pry
 nil

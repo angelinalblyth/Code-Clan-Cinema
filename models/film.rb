@@ -40,8 +40,8 @@ class Film
   end
 
   def delete()
-    sql = "DELETE * from films WHERE id = $1"
-    values [@id]
+    sql = "DELETE * FROM films WHERE id = $1"
+    values = [@id]
     SqlRunner.run(sql, values)
   end
 
