@@ -53,6 +53,17 @@ ticket7.save()
 
 screening1 = Screening.new({'screening_time' => '12:00', 'film_id' => film1.id})
 screening1.save()
+screening2 = Screening.new({'screening_time' => '14:00', 'film_id' => film1.id})
+screening2.save()
+screening3 = Screening.new({'screening_time' => '16:00', 'film_id' => film1.id})
+screening3.save()
+screening4 = Screening.new({'screening_time' => '12:00', 'film_id' => film2.id})
+screening4.save()
+screening5 = Screening.new({'screening_time' => '14:00', 'film_id' => film2.id})
+screening5.save()
+screening6 = Screening.new({'screening_time' => '16:00', 'film_id' => film2.id})
+screening6.save()
+
 
 customer1.name = "Angie"
 customer1.update()
