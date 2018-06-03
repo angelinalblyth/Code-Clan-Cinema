@@ -1,6 +1,7 @@
 require_relative('models/customer')
 require_relative('models/film')
 require_relative('models/ticket')
+require_relative('models/screening')
 
 require('pry-byebug')
 
@@ -49,6 +50,9 @@ ticket6 = Ticket.new({'customer_id' => '4', 'film_id' => '3'})
 ticket6.save()
 ticket7 = Ticket.new({'customer_id' => '1', 'film_id' => '3'})
 ticket7.save()
+
+screening1 = Screening.new({'screening_time' => '12:00', 'film_id' => film1.id})
+screening1.save()
 
 customer1.name = "Angie"
 customer1.update()
