@@ -21,12 +21,7 @@ class Film
     @id = film['id'].to_i
   end
 
-  def self.all() #Film.all()
-    sql = "SELECT * FROM films"
-    films = SqlRunner.run(sql)
-    results = films.map{|film| Film.new(film)}
-    return results
-  end
+  
 
   def self.delete_all()
     sql = "DELETE FROM films"
@@ -40,8 +35,8 @@ class Film
   end
 
   def delete()
-    sql = "DELETE * FROM films WHERE id = $1"
-    values = [@id]
+    sql = "DELETE * from films WHERE id = $1"
+    values =[@id]
     SqlRunner.run(sql, values)
   end
 

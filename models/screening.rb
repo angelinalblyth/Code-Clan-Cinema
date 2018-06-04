@@ -12,7 +12,7 @@ def initialize(options)
   @id = options['id'][0].to_i if options['id']
   @screening_time = options['screening_time']
   @film_id = options['film_id'].to_i
-  @tickets_sold = 0
+  # @tickets_sold = 0
 end
 
 def save()
